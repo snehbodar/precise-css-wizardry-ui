@@ -41,13 +41,13 @@ const CalendarWidget = () => {
             className={`text-center py-2 text-sm relative ${
               date === 12
                 ? 'bg-white text-dark-200 rounded-lg font-semibold'
-                : date && eventDays.includes(date)
+                : date && typeof date === 'number' && eventDays.includes(date)
                 ? 'text-orange-500 font-semibold'
                 : 'text-gray-300'
             }`}
           >
             {date}
-            {eventDays.includes(date) && date !== 12 && (
+            {typeof date === 'number' && eventDays.includes(date) && date !== 12 && (
               <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-orange-500 rounded-full"></div>
             )}
           </div>
